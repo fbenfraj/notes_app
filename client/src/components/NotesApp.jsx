@@ -1,44 +1,47 @@
-import React, { useState } from 'react';
-import NotesInput from './NotesInput';
-import NotesContainer from './NotesContainer';
+import React, { useState } from "react";
+import NotesInput from "./NotesInput";
+import NotesContainer from "./NotesContainer";
 
 const NotesApp = () => {
-    const [note, setNote] = useState({ text: '' });
-    const [notes, setNotes] = useState([]);
+  const [note, setNote] = useState({ text: "" });
+  const [notes, setNotes] = useState([]);
 
-    function getRandomId() {
-        return '_' + Math.random().toString(36).substr(2, 9);
-    }
-
-    function handleInputChange(input) {
-        setNote({
-            id: getRandomId(),
-            text: input
-        });
-    }
-
-    function handleNoteAdded(e) {
-        e.preventDefault();
-        setNotes([...notes, note]);
-        setNote({ text: '' });
-    }
-
-    function handleNoteDelete(id) {
-        setNotes(notes.filter(note => note.id !== id));
-    }
-
+  function getRandomId() {
     return (
-        <>
-            <NotesInput
-                noteValue={note.text}
-                onInputChange={handleInputChange}
-                onNoteAdded={handleNoteAdded} />
-            <NotesContainer
-                notesArray={notes}
-                onNoteDelete={handleNoteDelete}
-            />
-        </>
-    )
-}
+      "_" +
+      Math.random()
+        .toString(36)
+        .substr(2, 9)
+    );
+  }
+
+  function handleInputChange(input) {
+    setNote({
+      id: getRandomId(),
+      text: input
+    });
+  }
+
+  function handleNoteAdded(e) {
+    e.preventDefault();
+    setNotes([...notes, note]);
+    setNote({ text: "" });
+  }
+
+  function handleNoteDelete(id) {
+    setNotes(notes.filter(note => note.id !== id));
+  }
+
+  return (
+    <>
+      <NotesInput
+        noteValue={note.text}
+        onInputChange={handleInputChange}
+        onNoteAdded={handleNoteAdded}
+      />
+      <NotesContainer notesArray={notes} onNoteDelete={handleNoteDelete} />
+    </>
+  );
+};
 
 export default NotesApp;
