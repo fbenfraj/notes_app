@@ -27,18 +27,6 @@ const NotesApp = () => {
         setNotes(notes.filter(note => note.id !== id));
     }
 
-    function handleNoteChange(e, id) {
-        const newNotes = notes;
-        const noteToUpdate = notes.find(note => note.id === id);
-        const index = notes.indexOf(noteToUpdate);
-        noteToUpdate.text = e.target.value;
-        if (index !== -1) {
-            newNotes[index] = noteToUpdate;
-        }
-        console.log(newNotes);
-        setNotes(newNotes);
-    }
-
     return (
         <>
             <NotesInput
@@ -47,7 +35,6 @@ const NotesApp = () => {
                 onNoteAdded={handleNoteAdded} />
             <NotesContainer
                 notesArray={notes}
-                onNoteChange={handleNoteChange}
                 onNoteDelete={handleNoteDelete}
             />
         </>
