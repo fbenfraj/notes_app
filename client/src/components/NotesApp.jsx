@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NotesInput from "./NotesInput";
 import NotesContainer from "./NotesContainer";
 
 const NotesApp = () => {
   const [note, setNote] = useState({ text: "" });
   const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
 
   function getRandomId() {
     return (
