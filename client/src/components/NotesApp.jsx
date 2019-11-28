@@ -4,7 +4,7 @@ import NotesContainer from "./NotesContainer";
 
 const NotesApp = () => {
   const [note, setNote] = useState({ text: "" });
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')));
 
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
