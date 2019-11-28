@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactMarkdown from 'react-markdown';
 import EditPopup from "./EditPopup/EditPopup";
 import deleteIcon from "../assets/delete.svg";
 import editIcon from "../assets/edit.svg";
@@ -15,7 +16,7 @@ const NoteItem = props => {
 
   return (
     <span>
-      <label>{text}</label>
+      <ReactMarkdown source={text} />
       <img
         src={editIcon}
         height="20px"

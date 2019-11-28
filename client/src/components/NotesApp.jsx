@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import NotesInput from "./NotesInput";
+import NotesInput from "./NotesInput/NotesInput";
 import NotesContainer from "./NotesContainer";
 
 const NotesApp = () => {
