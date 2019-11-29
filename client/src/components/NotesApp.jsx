@@ -32,9 +32,15 @@ const NotesApp = () => {
     setNote({ text: "" });
   }
 
+  function handleNoteUpdate(e, noteId, newText) {
+    e.preventDefault();
+    setNotes(notes.map(note => note.id === noteId ? { ...note, text: newText } : note));
+  }
+
   function handleNoteDelete(id) {
     setNotes(notes.filter(note => note.id !== id));
   }
+
 
   return (
     <>
@@ -43,7 +49,7 @@ const NotesApp = () => {
         onInputChange={handleInputChange}
         onNoteAdded={handleNoteAdded}
       />
-      <NotesContainer notesArray={notes} onNoteDelete={handleNoteDelete} />
+      <NotesContainer notesArray={notes} onNoteDelete={handleNoteDelete} onNoteChange={(e, id, newText) => { handleNoteUpdate(e, id, newText) }} />
     </>
   );
 };

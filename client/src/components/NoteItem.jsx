@@ -5,18 +5,11 @@ import deleteIcon from "../assets/delete.svg";
 import editIcon from "../assets/edit.svg";
 
 const NoteItem = props => {
-  const [text, setText] = useState(props.text);
   const [editMode, setEditMode] = useState(false);
-
-  function updateText(e, newText) {
-    e.preventDefault();
-    setEditMode(false);
-    setText(newText);
-  }
 
   return (
     <span>
-      <ReactMarkdown source={text} />
+      <ReactMarkdown source={props.text} />
       <img
         src={editIcon}
         height="20px"
@@ -24,7 +17,10 @@ const NoteItem = props => {
         alt="edit"
         onClick={() => setEditMode(true)}
       />
-      {editMode && <EditPopup textValue={text} onFinished={updateText} />}
+      {editMode && <EditPopup textValue={props.text} onFinished={(e, newText) => {
+        props.onNoteUpdate(e, newText);
+        setEditMode(false);
+      }} />}
       <img
         src={deleteIcon}
         height="20px"
