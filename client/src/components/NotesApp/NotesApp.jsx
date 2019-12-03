@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import NotesInput from "../NotesInput/NotesInput";
-import NotesContainer from "../NotesContainer";
+import NotesContainer from "../NotesContainer/NotesContainer";
 import './NotesApp.scss';
 
 const NotesApp = () => {
   const [note, setNote] = useState({ text: "" });
-  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')));
+  const [notes, setNotes] = useState(localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : []);
 
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));

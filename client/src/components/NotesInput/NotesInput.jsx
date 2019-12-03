@@ -11,11 +11,11 @@ const NotesInput = props => {
   }
 
   return (
-    <form onSubmit={e => props.onNoteAdded(e)}>
+    <form className="input-form" onSubmit={e => props.onNoteAdded(e)}>
       <TextareaAutosize
         value={props.noteValue}
         type="text"
-        placeholder="Enter your new note here."
+        placeholder="Enter your new note here. (Shift + Enter to jump to the line)"
         onChange={e => props.onInputChange(e.target.value)}
         onKeyDown={onEnterPress}
       />

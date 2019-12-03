@@ -1,10 +1,10 @@
 import React from "react";
-
-import NoteItem from "./NoteItem";
+import NoteItem from "../NoteItem/NoteItem";
+import './NotesContainer.scss';
 
 const NotesContainer = props => {
   return (
-    <>
+    <div className="notes-container">
       {props.notesArray.map(note => {
         return (
           <NoteItem
@@ -15,7 +15,7 @@ const NotesContainer = props => {
           />
         );
       })}
-    </>
+    </div>
   );
 };
 

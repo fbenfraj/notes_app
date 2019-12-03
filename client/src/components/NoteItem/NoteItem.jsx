@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import ReactMarkdown from 'react-markdown';
-import EditPopup from "./EditPopup/EditPopup";
-import deleteIcon from "../assets/delete.svg";
-import editIcon from "../assets/edit.svg";
+import EditPopup from "../EditPopup/EditPopup";
+import deleteIcon from "../../assets/delete.svg";
+import editIcon from "../../assets/edit.svg";
+import './NoteItem.scss';
 
 const NoteItem = props => {
   const [editMode, setEditMode] = useState(false);
 
   return (
-    <span>
+    <span className="note-container">
       <ReactMarkdown source={props.text} />
       <img
         src={editIcon}
