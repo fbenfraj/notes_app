@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TextareaAutosize from 'react-textarea-autosize';
-import "./EditPopup.css";
+import "./EditPopup.scss";
 
 const Popup = props => {
   const [newText, setNewText] = useState(props.textValue);

@@ -1,6 +1,6 @@
 import React from "react";
 import TextareaAutosize from 'react-textarea-autosize';
-import './NotesInput.css';
+import './NotesInput.scss';
 
 const NotesInput = props => {
 

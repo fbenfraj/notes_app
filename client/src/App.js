@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import NotesApp from './components/NotesApp';
+import './App.scss';
+import NotesApp from './components/NotesApp/NotesApp';
 
 function App() {
   return <NotesApp />;

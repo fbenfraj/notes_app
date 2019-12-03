@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import NotesInput from "./NotesInput/NotesInput";
-import NotesContainer from "./NotesContainer";
+import NotesInput from "../NotesInput/NotesInput";
+import NotesContainer from "../NotesContainer";
+import './NotesApp.scss';
 
 const NotesApp = () => {
   const [note, setNote] = useState({ text: "" });
@@ -43,14 +44,14 @@ const NotesApp = () => {
 
 
   return (
-    <>
+    <main className="app-container">
       <NotesInput
         noteValue={note.text}
         onInputChange={handleInputChange}
         onNoteAdded={handleNoteAdded}
       />
       <NotesContainer notesArray={notes} onNoteDelete={handleNoteDelete} onNoteChange={(e, id, newText) => { handleNoteUpdate(e, id, newText) }} />
-    </>
+    </main>
   );
 };
 
